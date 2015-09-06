@@ -8,7 +8,8 @@
         <fileset dir="${cobertura.dir}">
             <include name="coburtura/cobertura*.jar" />
             <include name="*.jar" />
-            <include name="lib/coburtura/slf4j-api-1.7.5.jar" />
+            <include name="lib/slf4j-api-1.7.5.jar" />
+            <include name="lib/*.jar" />
             <include name="lib/**/*.jar" />
         </fileset>
     </path>
