@@ -7,7 +7,3 @@ Vagrantfile
 /.vagrant
 /classes
 /instr*
-/reports/cobertura-html
-/reports/emma
-/reports/junit-html
-cobuertura.ser
