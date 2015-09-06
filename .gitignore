@@ -1,0 +1,11 @@
+.DS_Store
+*.iml
+/.idea
+/out
+*.sh
+Vagrantfile
+/.vagrant
+/classes
+/instr*
+/reports
+cobuertura.ser
