@@ -9,13 +9,8 @@ public class Controller {
         this.display = display;
     }
 
-    public Controller executeAction(ConsoleDisplay display, Object current) {
-        /* Menu menu = new Menu();
+    public Controller executeAction() {
         display.putOutput(current);
-        display.putOutput(menu);
-        int option = ()display.getInt();
-        Object selectObject = menu.select(option);
-        return new Controller(display, menu); */
-        return null;
+        return new Controller(display, new Menu());
     }
 }

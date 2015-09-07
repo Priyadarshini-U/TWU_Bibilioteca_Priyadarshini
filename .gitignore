@@ -5,5 +5,3 @@
 *.sh
 Vagrantfile
 /.vagrant
-/classes
-/instr*
