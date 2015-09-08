@@ -122,10 +122,10 @@
         -->
         <cobertura-report destdir="${coverage.html.dir}">
             <fileset dir="${src.dir}">
-                <include name="**/*.java"/>
+                <include name="*.java"/>
             </fileset>
             <fileset dir="${test.dir}">
-                <include name="**/*.java"/>
+                <include name="*.java"/>
             </fileset>
         </cobertura-report>
     </target>
