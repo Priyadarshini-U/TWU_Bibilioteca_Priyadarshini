@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Menu {
-    private List<String> list = new ArrayList<String>() {{
-        add("List Books");
-        add("quit");
+    private final List<String> list = new ArrayList<String>() {{
+        add("1. List Books");
+        add("2. quit");
+        add("3. CheckOut Book");
     }};
 
     public Object select(int i) {

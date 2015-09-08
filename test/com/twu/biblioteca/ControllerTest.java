@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import com.apple.eawt.Application;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -29,12 +28,14 @@ public class ControllerTest {
     public void shouldReturnNewControllerWithMenu() {
         WelcomeScreen welcomeScreen = new WelcomeScreen();
 
+        String input="1";
+        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        ConsoleDisplay consoleDisplay = new ConsoleDisplay(System.in, new PrintStream(outContent));
+        ConsoleDisplay consoleDisplay = new ConsoleDisplay(inContent, new PrintStream(outContent));
         Controller controller = new Controller(consoleDisplay, welcomeScreen);
-        Controller result =  controller.executeAction();
+        IController result =  controller.executeAction();
         result.executeAction();
 
-        assertTrue(outContent.toString().contains("[List Books, quit]"));
+        assertTrue(outContent.toString().contains("[1. List Books, 2. quit, 3. CheckOut Book]"));
     }
 }

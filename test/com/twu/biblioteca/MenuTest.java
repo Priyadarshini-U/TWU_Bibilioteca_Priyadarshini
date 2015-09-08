@@ -31,6 +31,6 @@ public class MenuTest {
     public void shouldReturnListAsString() {
         Menu menu = new Menu();
 
-        assertEquals(menu.toString(), "[List Books, quit]");
+        assertEquals(menu.toString(), "[1. List Books, 2. quit, 3. CheckOut Book]");
     }
 }

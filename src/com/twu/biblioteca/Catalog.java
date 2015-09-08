@@ -25,4 +25,8 @@ public class Catalog {
             out = out + book.toString()+"\n";
         return out;
     }
+
+    public boolean contains(Book book) {
+        return list.contains(book);
+    }
 }

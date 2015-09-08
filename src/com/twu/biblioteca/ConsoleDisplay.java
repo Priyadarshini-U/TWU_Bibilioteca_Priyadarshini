@@ -18,4 +18,9 @@ public class ConsoleDisplay {
         System.setOut((PrintStream) outputStream);
         System.out.println(object);
     }
+
+    public int getInteger() {
+        Scanner scanner = new Scanner(inputStream);
+        return scanner.nextInt();
+    }
 }

@@ -7,18 +7,28 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.spy;
 
 public class ConsoleDisplayTest {
 
     @Test
     public void shouldPrintObjectsToStringOutput() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        ConsoleDisplay display = spy(new ConsoleDisplay(System.in,new PrintStream(outContent)));
+        ConsoleDisplay display = new ConsoleDisplay(System.in,new PrintStream(outContent));
 
         Object object = new Object();
         display.putOutput(object);
 
         assertEquals(object.toString()+"\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldGetIntegerFromInputStream() {
+        String input="1";
+        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
+
+        ConsoleDisplay display = new ConsoleDisplay(inContent,System.out);
+        int inputInteger = display.getInteger();
+
+        assertEquals(inputInteger, 1);
     }
 }

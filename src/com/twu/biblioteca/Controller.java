@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Controller {
+public class Controller implements IController{
     private ConsoleDisplay display;
     private Object current;
 
@@ -9,8 +9,8 @@ public class Controller {
         this.display = display;
     }
 
-    public Controller executeAction() {
+    public IController executeAction() {
         display.putOutput(current);
-        return new Controller(display, new Menu());
+        return new MenuController(display, new Menu());
     }
 }
