@@ -63,7 +63,7 @@
     </target>
 
     <target name="test" depends="init,compile">
-        <junit fork="yes" dir="${basedir}" failureProperty="test.failed" printsummary="true" haltonfailure="true">
+        <junit fork="yes" dir="${basedir}" failureProperty="test.failed" printsummary="true" haltonfailure="false">
             <!--
                 Note the classpath order: instrumented classes are before the
                 original (uninstrumented) classes.  This is important.
@@ -79,7 +79,7 @@
             <classpath refid="cobertura.classpath" />
 
             <formatter type="xml" />
-            <test name="${testcase}" todir="${reports.xml.dir}" if="testcase" />
+            <test name="runjUnit" todir="${reports.xml.dir}" if="testcase" />
             <batchtest todir="${reports.xml.dir}"  unless="testcase">
                 <fileset dir="${test.dir}">
                     <include name="**/*Test.java" />
