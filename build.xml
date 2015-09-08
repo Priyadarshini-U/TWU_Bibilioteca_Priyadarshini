@@ -104,7 +104,7 @@
             Generate an XML file containing the coverage data using
             the "srcdir" attribute.
         -->
-        <cobertura-report srcdir="${src.dir}" destdir="${coverage.xml.dir}" format="xml" />
+        <cobertura-report srcdir="${src.dir};${test.dir}" destdir="${coverage.xml.dir}" format="xml" />
     </target>
 
     <target name="summary-coverage-report">
@@ -112,7 +112,7 @@
             Generate an summary XML file containing the coverage data using
             the "srcdir" attribute.
         -->
-        <cobertura-report srcdir="${src.dir}" destdir="${coverage.summaryxml.dir}" format="summaryXml" />
+        <cobertura-report srcdir="${src.dir};${test.dir}" destdir="${coverage.summaryxml.dir}" format="summaryXml" />
     </target>
 
     <target name="alternate-coverage-report">
@@ -122,6 +122,9 @@
         -->
         <cobertura-report destdir="${coverage.html.dir}">
             <fileset dir="${src.dir}">
+                <include name="**/*.java"/>
+            </fileset>
+            <fileset dir="${test.dir}">
                 <include name="**/*.java"/>
             </fileset>
         </cobertura-report>
