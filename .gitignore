@@ -8,4 +8,3 @@
 *.sh
 Vagrantfile
 /.vagrant
-/reports
