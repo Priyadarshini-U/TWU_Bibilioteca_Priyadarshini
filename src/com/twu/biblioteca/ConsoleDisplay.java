@@ -23,4 +23,9 @@ public class ConsoleDisplay {
         Scanner scanner = new Scanner(inputStream);
         return scanner.nextInt();
     }
+
+    public String getString() {
+        Scanner scanner = new Scanner(inputStream);
+        return scanner.nextLine();
+    }
 }

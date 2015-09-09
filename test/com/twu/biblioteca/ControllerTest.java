@@ -18,7 +18,7 @@ public class ControllerTest {
         WelcomeScreen welcomeScreen = new WelcomeScreen();
         ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
 
-        Controller controller = new Controller(consoleDisplay, welcomeScreen);
+        Controller controller = new Controller(consoleDisplay, welcomeScreen, null);
         controller.executeAction();
 
         verify(consoleDisplay).putOutput(welcomeScreen);
@@ -32,7 +32,7 @@ public class ControllerTest {
         ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         ConsoleDisplay consoleDisplay = new ConsoleDisplay(inContent, new PrintStream(outContent));
-        Controller controller = new Controller(consoleDisplay, welcomeScreen);
+        Controller controller = new Controller(consoleDisplay, welcomeScreen, null);
         IController result =  controller.executeAction();
         result.executeAction();
 

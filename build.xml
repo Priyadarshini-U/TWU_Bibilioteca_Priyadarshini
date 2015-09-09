@@ -56,14 +56,14 @@
                     Instrument all the application classes, but
                     don't instrument the test classes.
                 -->
-                <include name="*.class" />
-                <exclude name="*Test.class" />
+                <include name="**/*.class" />
+                <exclude name="**/*Test*.class" />
             </fileset>
         </cobertura-instrument>
     </target>
 
     <target name="test" depends="init,compile">
-        <junit fork="yes" dir="${basedir}" failureProperty="test.failed" printsummary="true" haltonfailure="false">
+        <junit fork="yes" dir="${basedir}" failureProperty="test.failed" printsummary="true" haltonfailure="true">
             <!--
                 Note the classpath order: instrumented classes are before the
                 original (uninstrumented) classes.  This is important.

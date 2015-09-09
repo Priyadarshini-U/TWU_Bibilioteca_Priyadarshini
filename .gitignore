@@ -2,6 +2,10 @@
 *.iml
 /.idea
 /out
+/classes
+/instrumented
+*.ser
 *.sh
 Vagrantfile
 /.vagrant
+/reports

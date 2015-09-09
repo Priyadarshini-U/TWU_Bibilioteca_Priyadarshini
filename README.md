@@ -2,7 +2,7 @@
 
 ##Project Description
 
-    Library Manangement System that supports book check-in, check-out and other related functionality
+    Library Manangement System that supports bookDetails check-in, check-out and other related functionality
 
 ##Dependencies
 
