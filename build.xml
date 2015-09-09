@@ -63,7 +63,7 @@
     </target>
 
     <target name="test" depends="init,compile">
-        <junit fork="yes" dir="${basedir}" failureProperty="test.failed" printsummary="true" haltonfailure="true">
+        <junit fork="yes" dir="${basedir}" failureProperty="test.failed" printsummary="true" haltonfailure="false">
             <!--
                 Note the classpath order: instrumented classes are before the
                 original (uninstrumented) classes.  This is important.
@@ -82,7 +82,7 @@
             <test name="runjUnit" todir="${reports.xml.dir}" if="testcase" />
             <batchtest todir="${reports.xml.dir}"  unless="testcase">
                 <fileset dir="${test.dir}">
-                    <include name="*Test.java" />
+                    <include name="**/*Test.java" />
                 </fileset>
             </batchtest>
         </junit>
@@ -104,7 +104,7 @@
             Generate an XML file containing the coverage data using
             the "srcdir" attribute.
         -->
-        <cobertura-report srcdir="${src.dir};${test.dir}" destdir="${coverage.xml.dir}" format="xml" />
+        <cobertura-report srcdir="${src.dir}" destdir="${coverage.xml.dir}" format="xml" />
     </target>
 
     <target name="summary-coverage-report">
@@ -112,7 +112,7 @@
             Generate an summary XML file containing the coverage data using
             the "srcdir" attribute.
         -->
-        <cobertura-report srcdir="${src.dir};${test.dir}" destdir="${coverage.summaryxml.dir}" format="summaryXml" />
+        <cobertura-report srcdir="${src.dir}" destdir="${coverage.summaryxml.dir}" format="summaryXml" />
     </target>
 
     <target name="alternate-coverage-report">
@@ -122,10 +122,7 @@
         -->
         <cobertura-report destdir="${coverage.html.dir}">
             <fileset dir="${src.dir}">
-                <include name="*.java"/>
-            </fileset>
-            <fileset dir="${test.dir}">
-                <include name="*.java"/>
+                <include name="**/*.java"/>
             </fileset>
         </cobertura-report>
     </target>

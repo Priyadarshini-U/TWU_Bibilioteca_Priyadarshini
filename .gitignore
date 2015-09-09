@@ -2,7 +2,7 @@
 *.iml
 /.idea
 /out
-/classes
+/junitClasses
 /instrumented
 *.ser
 *.sh

@@ -36,6 +36,6 @@ public class ControllerTest {
         IController result =  controller.executeAction();
         result.executeAction();
 
-        assertTrue(outContent.toString().contains("[1. List Books, 2. quit, 3. CheckOut Book]"));
+        assertTrue(outContent.toString().contains("[1. List Books, 2. quit, 3. CheckOut Book, 4. return Book]"));
     }
 }

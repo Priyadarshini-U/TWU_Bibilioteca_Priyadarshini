@@ -11,6 +11,8 @@ import java.util.HashMap;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class MenuControllerTest {
 
@@ -18,8 +20,10 @@ public class MenuControllerTest {
     public void shouldPrintCurrentObject() {
         Menu menu = new Menu();
 
+        String input = "1";
+        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        ConsoleDisplay consoleDisplay = new ConsoleDisplay(System.in, new PrintStream(outContent));
+        ConsoleDisplay consoleDisplay = new ConsoleDisplay(inContent, new PrintStream(outContent));
         MenuController controller = new MenuController(consoleDisplay, menu, null);
         controller.executeAction();
 

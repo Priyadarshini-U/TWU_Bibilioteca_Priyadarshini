@@ -3,9 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class BookLibraryOperationTest {
 
@@ -44,7 +42,7 @@ public class BookLibraryOperationTest {
         BookLibraryOperation bookLibraryOperation = new BookLibraryOperation(consoleDisplay, bookLibrary);
         bookLibraryOperation.executeCheckout();
 
-        verify(bookLibrary).checkoutBook("name1");
+        verify(bookLibrary, times(0)).checkoutBook("name1");
     }
 
     @Test
@@ -65,11 +63,11 @@ public class BookLibraryOperationTest {
         BookLibrary bookLibrary = mock( BookLibrary.class);
         ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
         when(consoleDisplay.getString()).thenReturn("name1");
-        when(bookLibrary.isBookAvailableForCheckOut(anyString())).thenReturn(true);
+        when(bookLibrary.isBookAvailableForCheckOut(anyString())).thenReturn(false);
 
         BookLibraryOperation bookLibraryOperation = new BookLibraryOperation(consoleDisplay, bookLibrary);
         bookLibraryOperation.executeCheckout();
 
-        verify(consoleDisplay).putOutput("Checkout Not succesful");
+        verify(consoleDisplay).putOutput("Checkout NOT succesful");
     }
 }
